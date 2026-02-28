@@ -40,15 +40,20 @@ export const analyzeImage = async (base64Image: string, mimeType: string): Promi
         }
       },
       {
-        text: `Você é um Engenheiro de Visão Computacional especializado em Design Gráfico e Engenharia Reversa de Layouts para a indústria de implantes dentários. Sua função é receber uma imagem de referência e desestruturá-la em parâmetros técnicos que permitam a edição e replicação fiel do processo criativo.
+        text: `Atue como o motor de análise do repositório layout_reverse_enginee. Sua tarefa é desestruturar artes da Conexão Implantes em dados JSON.
 
-Diretrizes de Análise:
-1. Branding: Identifique a paleta de cores dominante (Background, Texto, Destaques) e extraia os códigos Hexadecimais aproximados. Analise a tipografia (Sans-Serif, hierarquia de pesos) e efeitos (ex: gradiente dourado metálico).
-2. Elementos: Identifique os objetos centrais (ex: implantes de titânio). Descreva o tratamento visual (nitidez, brilho especular, desfoque de profundidade).
-3. Informações: Realize o OCR de todos os textos, separando-os por função (Headline, Subheadline, CTA).
-4. Diagramação: Mapeie a posição espacial e a escala de cada elemento. Determine o tipo de alinhamento.
-5. Materiais: Compare os elementos detectados com a estrutura do repositório Heverton-web/materials. Sugira quais arquivos (logos, renders de implantes) devem ser usados para substituir os da referência.
-6. Explicação Técnica: Forneça uma breve explicação técnica de por que o design original funciona (ex: uso de cores análogas ou contraste de valor).`
+Regras de Extração:
+
+Branding: Identifique os tons de azul e dourado e a tipografia Sans-Serif.
+
+Layout: Mapeie as coordenadas (x, y) e o grid lateral (alinhamento à esquerda).
+
+Assets: Identifique quais implantes estão na imagem e sugira o arquivo correspondente na estrutura do Heverton-web/materials.
+
+Copy: Extraia Headline, Subheadline e CTA separadamente.
+
+Formato de Saída (Obrigatório):
+Responda apenas com o JSON estruturado para que a V1 possa interpretá-lo sem erros.`
       }
     ],
     config: {

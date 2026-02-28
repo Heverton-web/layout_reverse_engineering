@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { AnalysisResult } from '../services/gemini';
-import { Palette, Type, Layers, AlignLeft, Box, Lightbulb, CheckCircle2 } from 'lucide-react';
+import { Palette, Type, Layers, AlignLeft, Box, Lightbulb, CheckCircle2, Code } from 'lucide-react';
 
 interface AnalysisResultsProps {
   result: AnalysisResult | null;
 }
 
-type TabType = 'branding' | 'elementos' | 'informacoes' | 'diagramacao' | 'materiais';
+type TabType = 'branding' | 'elementos' | 'informacoes' | 'diagramacao' | 'materiais' | 'json';
 
 export function AnalysisResults({ result }: AnalysisResultsProps) {
   const [activeTab, setActiveTab] = useState<TabType>('branding');
@@ -28,6 +28,7 @@ export function AnalysisResults({ result }: AnalysisResultsProps) {
     { id: 'informacoes', label: 'Informações', icon: <Type size={16} /> },
     { id: 'diagramacao', label: 'Diagramação', icon: <AlignLeft size={16} /> },
     { id: 'materiais', label: 'Materiais', icon: <Box size={16} /> },
+    { id: 'json', label: 'JSON Raw', icon: <Code size={16} /> },
   ];
 
   return (
@@ -151,6 +152,18 @@ export function AnalysisResults({ result }: AnalysisResultsProps) {
                     <span className="text-sm font-mono text-blue-300">{sugestao}</span>
                   </div>
                 ))}
+              </div>
+            </Section>
+          </div>
+        )}
+
+        {activeTab === 'json' && (
+          <div className="h-full">
+            <Section title="JSON Estruturado Bruto">
+              <div className="bg-bg-dark p-4 rounded-lg border border-border overflow-x-auto">
+                <pre className="text-xs font-mono text-green-400">
+                  {JSON.stringify(result, null, 2)}
+                </pre>
               </div>
             </Section>
           </div>
